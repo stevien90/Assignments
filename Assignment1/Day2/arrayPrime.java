@@ -41,7 +41,7 @@ public class arrayPrime {
 	public static boolean prime(int p) {
 		//// body
 		int count = 0;
-		for (int i = 0; i <=p; i++) {
+		for (int i = 1; i <=p; i++) {
 			if(p%i==0) {
 				count++;
 			}
