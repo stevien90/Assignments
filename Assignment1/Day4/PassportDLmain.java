@@ -13,7 +13,6 @@ public class PassportDLmain {
 	
 	
 	try {
-	
 		if(pd.isPassport(userInput)) {
 		System.out.println("Validation successful");	
 		}
@@ -22,8 +21,6 @@ public class PassportDLmain {
 	}
 	
 	
-	
-
 	
 	System.out.println("Please enter your Driver's License number");
 	String userInput2 = sc.nextLine();

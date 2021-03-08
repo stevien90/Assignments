@@ -7,7 +7,7 @@ public class PassportDLlogic{
 	
 	//CHECKED EXCEPTION - forces the developer to make a try and catch before the program can run
 	public boolean isPassport(String p) throws InvalidPassportException {
-		if(p.matches("[^a-zA-Z0-9]{1,9}")) {
+		if(p.matches("[^a-zA-Z0-9]{1,9}")) { // all combinations of special #@@#% between 1-9 length
 			throw new InvalidPassportException("No special characters");
 		}if(!(p.startsWith("c") || p.startsWith("C"))) {
 			throw new InvalidPassportException("Must contain c or C in the front");
@@ -21,7 +21,7 @@ public class PassportDLlogic{
 	//UNCHECKED - meaning the developer can use this method without correcting the error, the error 
 	//message bellow will appear when the program is running
 	public boolean isDLvalid(String d) {
-		if(d.matches("[^0-9]{1,8}")) {
+		if(d.matches("[^0-9]{1,8}")) { // all combinations of special character numbers with length of 1-8
 			throw new InvalidDLexception("Please enter numbers only");
 		}if(!(d.length()== 8)) {
 			throw new InvalidDLexception("Invalid amount of numbers");
