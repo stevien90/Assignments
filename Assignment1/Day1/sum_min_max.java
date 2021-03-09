@@ -1,16 +1,20 @@
 package Day1;
 
+import java.util.Scanner;
+
 public class sum_min_max {
 
 	public static void main(String[] args) {
 	
 		//* 4)Find the sum of all even numbers between 1 and 100, also find sum of all odd numbers between 1 and 100
 		//and print the results and print which is largest among them(between evensum and oddsum)
+		Scanner sc = new Scanner(System.in);
 		int totaleven = 0;
 		int totalodd =0;
 		
 		//Summing up all the even numbers and odd numbers
-		for (int x = 1; x < 100; ++x) {
+		int range = Integer.parseInt(sc.nextLine());
+		for (int x = 1; x < range; ++x) {
 			if(x%2==0) {
 				totaleven+=x;
 			}if(x%2==1) {
