@@ -1,0 +1,8 @@
+package com.demo.playerdao;
+
+pub
+public interface PlayerDAO {
+	
+	publicint addPlayer(Player player);
+}
+

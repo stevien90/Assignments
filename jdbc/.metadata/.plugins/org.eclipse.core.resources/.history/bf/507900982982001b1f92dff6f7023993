@@ -1,0 +1,17 @@
+package com.app;
+
+public class Demo1 {
+
+	public static void main(String[] args) {
+		
+		//Step 1 -- Load Driver
+		try {
+			Class.forName("org.postgresql.Driver");
+			System.out.println("Driver Loaded Successfully");
+		} catch (ClassNotFoundException e) {
+			System.out.println(e);;
+		}
+
+	}
+
+}

@@ -1,0 +1,40 @@
+package com.demo.playerdao.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.demo.dbutil.PostgresConnection;
+import com.demo.model.Player;
+import com.demo.playerdao.PlayerDAO;
+
+//Implementations -- This is where we connect to our database and define the abstract method in our interface
+//DAO - database access object
+public class PlayerDAOImpl implements PlayerDAO {
+
+	@Override
+	public int addPlayer(Player player) {
+
+		
+		int c=0;
+		//try with resources available from java 1.7 and above
+		//this block doesnt require finally to release the connection, the jvm will take care of releasing the connection
+		try(Connection connection=PostgresConnection.getConnection()){ //This is using the method we created for step1, step2, and step 6 of connecting to DB
+			
+			//step 3 and 4 are below
+			String sql = "insert into player_schema.player(id,name,age,city,gender) values(?,?,?,?,?)";
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, player.getId());
+			preparedStatement.setString(2, player.getName());
+			preparedStatement.setInt(3, player.getAge());
+			preparedStatement.setString(4, player.getCity());
+			preparedStatement.setString(5, player.getGender());
+			c=preparedStatement.executeUpdate();
+		} catch (ClassNotFoundException | SQLException e) {
+			System.out.println(e);
+		}
+		
+		return c;
+	}
+
+}
